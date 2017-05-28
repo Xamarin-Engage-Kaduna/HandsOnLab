@@ -1,0 +1,2 @@
+C:\Users\John\Documents\Projects\EngageSpeakers\EngageSpeakers\EngageSpeakers.WinPhone\EngageSpeakers.WinPhone.csproj;x86
+C:\Users\John\Documents\Projects\EngageSpeakers\EngageSpeakers\EngageSpeakers\EngageSpeakers.csproj;neutral
