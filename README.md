@@ -1,4 +1,6 @@
 **Xamarin Engage Hands-on Lab**
+
+
 Today, we will be building a cloud connected Xamarin.Forms application that will display a list of Facilitators at Xamarin Engage and show their details. We will start by building some business logic backend that pulls down json from a RESTful endpoint and then we will connect it to an Azure Mobile App backend in just a few lines of code.
 **Get Started**
 Open Start/EngageSpeakers.sln
@@ -11,7 +13,11 @@ The EngageSpeakers project also has blank code files and XAML pages that we will
 NuGet Restore
 All projects have the required NuGet packages already installed, so there will be no need to install additional packages during the Hands on Lab. The first thing that we must do is restore all of the NuGet packages from the internet.
 This can be done by Right-clicking on the Solution and clicking on Restore NuGet packages...
+
+
 **Model**
+
+
 We will be pulling down information about speakers. Open the EngageSpeakers/Model/Faci.cs file and add the following properties inside of the Faci class:
 public string ID { get; set; }
 
@@ -20,9 +26,15 @@ public string Name { get; set; }
 public string Title { get; set; }
 
 public string Description { get; set; }
+
+
 **The User Interface**
+
+
 It is now finally time to build out our first Xamarin.Forms user interface in the View/FacisPage.xaml
-**FacisPage.xaml**
+
+
+#**FacisPage.xaml**
 For the first page we will add a few vertically-stacked controls to the page. We can use a StackLayout to do this. Between the ContentPage tags add the following:
 <StackLayout Spacing="0">
 
@@ -77,7 +89,8 @@ The Final Page code would look like this:
         </ListView>
     </StackLayout>
 </ContentPage>
-**Handle Events in FacisPage.xaml.cs**
+
+#**Handle Events in FacisPage.xaml.cs**
 Now, let's handle the events of the button and set it to call the Facilitators list upon click. Let's open up the code-behind for FacisPage.xaml called FacisPage.xaml.cs. add the following methods: 
 using System;
 using System.Collections.Generic;
@@ -148,7 +161,10 @@ namespace EngageSpeakers
         }
     }
 }
-**Details**
+
+
+
+#**Details**
 Now, let's do some navigation and display some Details. In the code-behind for FacisPage.xaml called FacisPage.xaml.cs.the following code snippet handles the navigation on the list and goes to the details page:
         private async void SpeakersList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -161,7 +177,9 @@ Now, let's do some navigation and display some Details. In the code-behind for F
         }
 
 In the above code we check to see if the selected item is not null and then use the built in Navigation API to push a new page and then deselect the item.
-**DetailsPage.xaml**
+
+
+#**DetailsPage.xaml**
 Let's now fill in the DetailsPage. Similar to the FacisPage, we will use a StackLayout, but we will wrap it in a ScrollView in case we have long text.
 <ScrollView Padding="10">
         <StackLayout Spacing="10">
@@ -188,15 +206,24 @@ The Final Code would look like this:
         </StackLayout>
     </ScrollView>
 </ContentPage>
-**Add Page**
+
+
+#**Add Page**
 Now, let's do some navigation to a page and Add a new Facilitator to the Database. In the code-behind for FacisPage.xaml called FacisPage.xaml.cs.the following code snippet handles the navigation to the next page from the tooolbar item:
-        private async void MenuItem_OnClicked(object sender, EventArgs e)
+       
+	   private async void MenuItem_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddFaciPage(new Faci()));
         }
+		
+		
 In the above code we receivet the click from the toolbaritem and navigates to the add item page.
-**DetailsPage.xaml**
+
+
+#**DetailsPage.xaml**
 Let's now fill in the AddFaciPage. Similar to the FacisPage and DetailsPage, we will use a StackLayout. The Final Code would look like this:
+
+
 <?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -213,7 +240,11 @@ Let's now fill in the AddFaciPage. Similar to the FacisPage and DetailsPage, we 
 
     </StackLayout>
 </ContentPage>
+
+
 Now to handle the click of the button to add the Facilitator, we go to the code behind, AddFaciPage.xaml.cs and add the code:
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -263,14 +294,18 @@ namespace EngageSpeakers
     }
 }
 
-**Run the App!**
+
+#**Run the App!**
 Set the iOS, Android, or WindowsPhone 8.1 as the startup project and start debugging.
-**iOS**
+
+#**iOS**
 If you are on a PC then you will need to be connected to a macOS device with Xamarin installed to run and debug the app.
 If connected, you will see a Green connection status. Select iPhoneSimulator as your target, and then select the Simulator to debug on.
-**Android**
+
+#**Android**
 Simply set the EngageSpeakers.Droid as the startup project and select a simulator to run on. The first compile may take some additional time as Support Packages are downloaded, so please be patient.
-**Windows Phone**
+
+#**Windows Phone**
 Simply set the EngageSpeakers.WinPhone(Windows Phone 8.1) as the startup project and select debug to WinPhone 8.1 Emulator or Device.
 
 
