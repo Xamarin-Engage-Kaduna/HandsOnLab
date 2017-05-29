@@ -34,7 +34,9 @@ public string Description { get; set; }
 It is now finally time to build out our first Xamarin.Forms user interface in the View/FacisPage.xaml
 
 
-#**FacisPage.xaml**
+**FacisPage.xaml**
+
+
 For the first page we will add a few vertically-stacked controls to the page. We can use a StackLayout to do this. Between the ContentPage tags add the following:
 <StackLayout Spacing="0">
 
@@ -90,7 +92,9 @@ The Final Page code would look like this:
     </StackLayout>
 </ContentPage>
 
-#**Handle Events in FacisPage.xaml.cs**
+**Handle Events in FacisPage.xaml.cs**
+
+
 Now, let's handle the events of the button and set it to call the Facilitators list upon click. Let's open up the code-behind for FacisPage.xaml called FacisPage.xaml.cs. add the following methods: 
 using System;
 using System.Collections.Generic;
@@ -164,7 +168,9 @@ namespace EngageSpeakers
 
 
 
-#**Details**
+**Details**
+
+
 Now, let's do some navigation and display some Details. In the code-behind for FacisPage.xaml called FacisPage.xaml.cs.the following code snippet handles the navigation on the list and goes to the details page:
         private async void SpeakersList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -179,7 +185,9 @@ Now, let's do some navigation and display some Details. In the code-behind for F
 In the above code we check to see if the selected item is not null and then use the built in Navigation API to push a new page and then deselect the item.
 
 
-#**DetailsPage.xaml**
+**DetailsPage.xaml**
+
+
 Let's now fill in the DetailsPage. Similar to the FacisPage, we will use a StackLayout, but we will wrap it in a ScrollView in case we have long text.
 <ScrollView Padding="10">
         <StackLayout Spacing="10">
@@ -208,7 +216,7 @@ The Final Code would look like this:
 </ContentPage>
 
 
-#**Add Page**
+#3**Add Page**
 Now, let's do some navigation to a page and Add a new Facilitator to the Database. In the code-behind for FacisPage.xaml called FacisPage.xaml.cs.the following code snippet handles the navigation to the next page from the tooolbar item:
        
 	   private async void MenuItem_OnClicked(object sender, EventArgs e)
